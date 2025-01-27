@@ -8,6 +8,7 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./monitors.nix
   ];
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages on this host

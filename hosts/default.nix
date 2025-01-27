@@ -22,8 +22,6 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
-          home-manager.users.sebastian = import ../home.nix;
         }
 
         # Host specific configuration
