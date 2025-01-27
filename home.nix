@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sebastian";
@@ -20,7 +22,7 @@
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    # pkgs.hello
+    pkgs.hello # To check if home-manager works
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -49,33 +51,33 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    
+
     # Set refresh rate to 144Hz
     ".config/monitors.xml".text = ''
-<monitors version="2">
-  <configuration>
-    <layoutmode>physical</layoutmode>
-    <logicalmonitor>
-      <x>0</x>
-      <y>0</y>
-      <scale>1</scale>
-      <primary>yes</primary>
-      <monitor>
-        <monitorspec>
-          <connector>DP-1</connector>
-          <vendor>XMI</vendor>
-          <product>Mi Monitor</product>
-          <serial>0x00000000</serial>
-        </monitorspec>
-        <mode>
-          <width>3440</width>
-          <height>1440</height>
-          <rate>144.000</rate>
-        </mode>
-      </monitor>
-    </logicalmonitor>
-  </configuration>
-</monitors>
+      <monitors version="2">
+        <configuration>
+          <layoutmode>physical</layoutmode>
+          <logicalmonitor>
+            <x>0</x>
+            <y>0</y>
+            <scale>1</scale>
+            <primary>yes</primary>
+            <monitor>
+              <monitorspec>
+                <connector>DP-1</connector>
+                <vendor>XMI</vendor>
+                <product>Mi Monitor</product>
+                <serial>0x00000000</serial>
+              </monitorspec>
+              <mode>
+                <width>3440</width>
+                <height>1440</height>
+                <rate>144.000</rate>
+              </mode>
+            </monitor>
+          </logicalmonitor>
+        </configuration>
+      </monitors>
     '';
   };
 
