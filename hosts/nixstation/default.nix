@@ -25,7 +25,7 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/tmp"]; # Save VRAM to /tmp on suspend
+  boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/tmp/vram"]; # Save VRAM to /tmp on suspend
 
   # Enable OpenGL
   hardware.graphics = {
@@ -64,9 +64,15 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    # Set the tmpfs max size to ~20% more than the total amount of video memory across all NVIDIA GPUs in this system
-    # We need this as the NVIDIA driver saves all VRAM to /tmp before suspend (see above)
-    options = ["size=10G" "mode=755"];
+    options = ["size=1G" "mode=755"];
+  };
+
+  # We use this to save the video memory of NVIDIA GPUs before suspend (see above)
+  # Ramfs seems to be a bit more performant than tmpfs here
+  # More info: https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/powermanagement.html
+  fileSystems."/tmp/vram" = {
+    device = "none";
+    fsType = "ramfs";
   };
 
   fileSystems."/boot" = {
