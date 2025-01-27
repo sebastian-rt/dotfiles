@@ -25,6 +25,7 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/tmp"]; # Save VRAM to /tmp on suspend
 
   # Enable OpenGL
   hardware.graphics = {
@@ -63,7 +64,9 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = ["size=1G" "mode=755"];
+    # Set the tmpfs max size to ~20% more than the total amount of video memory across all NVIDIA GPUs in this system
+    # We need this as the NVIDIA driver saves all VRAM to /tmp before suspend (see above)
+    options = ["size=10G" "mode=755"];
   };
 
   fileSystems."/boot" = {
