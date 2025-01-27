@@ -1,6 +1,7 @@
 # This file contains user-level configuration for my primary user (sebastian)
 {pkgs, ...}: {
   imports = [
+    ./packages.nix
     ./gnome.nix
   ];
 
@@ -21,10 +22,5 @@
     home.homeDirectory = "/home/sebastian";
 
     home.stateVersion = "24.11";
-
-    # TODO: modularize
-    home.packages = [
-      pkgs.hello
-    ];
   };
 }
