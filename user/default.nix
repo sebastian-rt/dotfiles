@@ -1,5 +1,9 @@
 # This file contains user-level configuration for my primary user (sebastian)
 {pkgs, ...}: {
+  imports = [
+    ./gnome.nix
+  ];
+
   users.users.root.hashedPasswordFile = "/persist/secrets/password_root";
   users.users.sebastian = {
     isNormalUser = true;
