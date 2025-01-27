@@ -10,8 +10,26 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  nixpkgs.config.allowUnfree = true; # Allow unfree packages on this host
+
   # CPU
   hardware.cpu.intel.updateMicrocode = true;
+
+  # NVIDIA Drivers
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
 
   # Network
   networking.networkmanager.enable = true;
