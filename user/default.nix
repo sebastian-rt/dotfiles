@@ -3,6 +3,7 @@
   imports = [
     ./packages.nix
     ./programs/audio/spot.nix # TODO: properly index all programs with a default.nix
+    ./programs/tools/resources.nix
     ./gnome.nix
   ];
 

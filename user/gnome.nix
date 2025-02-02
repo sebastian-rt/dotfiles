@@ -14,6 +14,17 @@
 
       # Disable "Welcome to GNOME" dialog
       "org/gnome/shell".welcome-dialog-last-shown-version = "999"; # A huge number represents a version that doesn't yet exist, effectively disabling the dialog
+
+      # Shortcuts
+      "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources/"
+      ];
+      # Shortcut: Open Resources
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources" = {
+        name = "Open Resources";
+        command = "resources";
+        binding = "<Shift><Control>Escape";
+      };
     };
   };
 }
