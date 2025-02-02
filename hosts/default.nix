@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  nixpkgs-unstable,
   impermanence,
   home-manager,
   ...
@@ -13,6 +14,18 @@
           nix.settings.experimental-features = ["nix-command" "flakes"]; # Enable flakes for all hosts
           networking.hostName = name;
           nixpkgs.hostPlatform = system;
+        }
+
+        # Make unstable nixpkgs available under nixpkgs.unstable
+        {
+          nixpkgs.overlays = [
+            (final: prev: {
+              unstable = import nixpkgs-unstable {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            })
+          ];
         }
 
         impermanence.nixosModules.impermanence
