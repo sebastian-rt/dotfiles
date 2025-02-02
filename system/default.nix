@@ -9,6 +9,9 @@
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.excludePackages = [pkgs.xterm]; # Exclude xterm
 
+  # Enable Wayland for Chromium/Electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # Exclude GNOME packages I don't need
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
