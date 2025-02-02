@@ -18,6 +18,10 @@
     yelp
     gnome-console
     snapshot
+    gnome-music
+    geary
+    simple-scan
+    totem
   ];
 
   # Keyring
