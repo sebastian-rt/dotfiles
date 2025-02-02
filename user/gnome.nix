@@ -18,12 +18,20 @@
       # Shortcuts
       "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_terminal/"
       ];
+
       # Shortcut: Open Resources
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources" = {
         name = "Open Resources";
         command = "resources";
         binding = "<Shift><Control>Escape";
+      };
+      # Shortcut: Open Terminal
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_terminal" = {
+        name = "Open Terminal";
+        command = "blackbox";
+        binding = "<Control><Alt>T";
       };
     };
   };
