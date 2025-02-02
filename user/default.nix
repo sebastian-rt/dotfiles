@@ -13,9 +13,7 @@
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/password_sebastian";
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
-    #   packages = with pkgs; [
-    #     tree
-    #   ];
+    description = "Sebastian";
   };
 
   home-manager.users.sebastian = {
