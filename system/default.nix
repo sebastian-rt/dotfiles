@@ -8,6 +8,10 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Keyring
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
   # Sound
   services.pipewire = {
     enable = true;

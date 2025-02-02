@@ -113,6 +113,7 @@
     users.sebastian = {
       directories = [
         ".mozilla" # Temporary solution; Browser should be configured declaratively
+        ".local/share/keyrings"
         "Desktop"
         "Documents"
         "Downloads"
