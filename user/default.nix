@@ -2,6 +2,7 @@
 {pkgs, ...}: {
   imports = [
     ./packages.nix
+    ./programs/audio/spot.nix # TODO: properly index all programs with a default.nix
     ./gnome.nix
   ];
 
