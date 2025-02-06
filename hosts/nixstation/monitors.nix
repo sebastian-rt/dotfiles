@@ -1,7 +1,5 @@
-{...}: {
-  # Set primary display to 144Hz refresh rate
-  # This has to be set on a per-user basis
-  home-manager.users.sebastian.home.file.".config/monitors.xml".text = ''
+{pkgs, ...}: let
+  monitorsXml = ''
     <monitors version="2">
       <configuration>
         <layoutmode>physical</layoutmode>
@@ -49,4 +47,13 @@
       </configuration>
     </monitors>
   '';
+in {
+  # Set primary display to 144Hz refresh rate
+  # This has to be set on a per-user basis
+  home-manager.users.sebastian.home.file.".config/monitors.xml".text = monitorsXml;
+
+  # Apply the monitor configuration to GDM
+  systemd.tmpfiles.rules = [
+    "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm-monitors.xml" monitorsXml}"
+  ];
 }
