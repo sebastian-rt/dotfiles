@@ -39,6 +39,7 @@
 
   # Kernel
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+  boot.initrd.verbose = false;
   boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
@@ -58,6 +59,22 @@
       efiSupport = true;
       useOSProber = true;
     };
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+
+    consoleLogLevel = 0;
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
   };
 
   # File system mounts
