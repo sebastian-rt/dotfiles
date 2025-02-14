@@ -1,8 +1,16 @@
 # User-level GNOME configuration
-{...}: {
-  home-manager.users.sebastian = {
+{pkgs, ...}: {
+  home-manager.users.sebastian = rec {
     dconf.enable = true;
+    # GNOME Extension Packages
+    home.packages = with pkgs.gnomeExtensions; [
+      useless-gaps
+    ];
+
     dconf.settings = {
+      # Enable GNOME Extensions
+      "org/gnome/shell".enabled-extensions = pkgs.lib.map (extension: extension.extensionUuid) home.packages;
+
       # Set dark mode
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
