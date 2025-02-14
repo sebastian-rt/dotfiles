@@ -90,6 +90,11 @@
     ];
   };
 
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    RuntimeMaxUse=50M
+  '';
+
   # File system mounts
   # Root is ephemeral in-memory tmpfs
   fileSystems."/" = {
