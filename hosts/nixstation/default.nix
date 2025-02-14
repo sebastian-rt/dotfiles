@@ -26,7 +26,6 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/tmp/vram"]; # Save VRAM to /tmp on suspend
 
   # Enable OpenGL
   hardware.graphics = {
@@ -87,6 +86,7 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "nvidia.NVreg_TemporaryFilePath=/tmp/vram" # Save VRAM to /tmp on suspend
     ];
   };
 
