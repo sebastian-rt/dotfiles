@@ -36,13 +36,15 @@
   # Network
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
-
-  # Kernel
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.verbose = false;
-  boot.initrd.kernelModules = ["dm-snapshot"];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  systemd.network.wait-online.enable = false;
+  # The options
+  # systemd.network.wait-online.enable
+  # boot.initd.systemd.network.wait-online.enable
+  # seem to be broken right now.
+  # https://discourse.nixos.org/t/error-network-wait-online-service/57902/5
+  # Until this is fixed, we can mask the systemd service to disable
+  # wait-online:
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Date & Time
   time.timeZone = "Europe/Berlin";
@@ -59,6 +61,17 @@
       efiSupport = true;
       useOSProber = true;
     };
+
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+      verbose = false;
+      kernelModules = ["dm-snapshot"];
+      systemd.network.wait-online.enable = false; # Seems to be broken; See above
+    };
+
     plymouth = {
       enable = true;
       theme = "bgrt";
