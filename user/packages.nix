@@ -3,5 +3,6 @@
     alejandra
     nixd
     hello
+    libreoffice-fresh
   ];
 }
