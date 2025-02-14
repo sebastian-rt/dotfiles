@@ -6,6 +6,7 @@
     ./programs/tools/resources.nix
     ./programs/tools/blackbox.nix
     ./programs/development/vscodium.nix
+    ./programs/development/git.nix
     ./gnome.nix
   ];
 
