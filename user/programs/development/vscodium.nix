@@ -9,6 +9,16 @@
       "window.titleBarStyle" = "custom"; # Use vscode window decorations
       "editor.formatOnSave" = true;
       "security.workspace.trust.enabled" = false;
+      # Nix IDE Extension
+      "nix.serverPath" = "nixd";
+      "nix.enableLanguageServer" = true;
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = ["alejandra"];
+          };
+        };
+      };
     };
   };
 }
