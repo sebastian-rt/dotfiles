@@ -111,7 +111,7 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = ["size=1G" "mode=755"];
+    options = ["size=2G" "mode=755"];
   };
 
   # We use this to save the video memory of NVIDIA GPUs before suspend (see above)
