@@ -90,6 +90,17 @@
     ];
   };
 
+  # Power mode (power-profiles-daemon)
+  # Performance mode by default
+  systemd.tmpfiles.rules = [
+    "L+ /var/lib/power-profiles-daemon/state.ini - - - - ${pkgs.writeText "power-profiles-daemon-state.ini" ''
+      [State]
+      CpuDriver=intel_pstate
+      PlatformDriver=placeholder
+      Profile=performance
+    ''}"
+  ];
+
   services.journald.extraConfig = ''
     SystemMaxUse=100M
     RuntimeMaxUse=50M
