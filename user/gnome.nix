@@ -23,6 +23,9 @@
       "org/gnome/desktop/background".primary-color = "#ff7800";
       "org/gnome/desktop/background".secondary-color = "#000000";
 
+      # Accent Color
+      "org/gnome/desktop/interface".accent-color = "red";
+
       # Disable "Welcome to GNOME" dialog
       "org/gnome/shell".welcome-dialog-last-shown-version = "999"; # A huge number represents a version that doesn't yet exist, effectively disabling the dialog
 
