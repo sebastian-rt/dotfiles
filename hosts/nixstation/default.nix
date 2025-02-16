@@ -160,6 +160,7 @@
       directories = [
         ".mozilla" # Temporary solution; Browser should be configured declaratively
         ".local/share/keyrings"
+        ".ssh"
         "Desktop"
         "Documents"
         "Downloads"
