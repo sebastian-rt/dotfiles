@@ -14,6 +14,9 @@
       # Set dark mode
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
+      # Enable minimize/maximize buttons on window titlebars
+      "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
+
       # GNOME "Amber" wallpaper
       "org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/amber-l.jxl";
       "org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/amber-d.jxl";
