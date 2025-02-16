@@ -1,6 +1,6 @@
 # User-level GNOME configuration
 {pkgs, ...}: {
-  home-manager.users.sebastian = rec {
+  home-manager.users.sebastian = {lib, ...}: rec {
     dconf.enable = true;
     # GNOME Extension Packages
     home.packages = with pkgs.gnomeExtensions; [
@@ -13,6 +13,12 @@
 
       # Set dark mode
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+      # Night Light
+      "org/gnome/settings-daemon/plugins/color".night-light-enabled = true;
+      "org/gnome/settings-daemon/plugins/color".night-light-schedule-from = 21.0;
+      "org/gnome/settings-daemon/plugins/color".night-light-schedule-to = 6.0;
+      "org/gnome/settings-daemon/plugins/color".night-light-temperature = lib.hm.gvariant.mkUint32 2000;
 
       # Enable minimize/maximize buttons on window titlebars
       "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
