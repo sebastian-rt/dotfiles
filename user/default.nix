@@ -7,6 +7,7 @@
     ./programs/tools/blackbox.nix
     ./programs/development/vscodium.nix
     ./programs/development/git.nix
+    ./programs/communication/vesktop.nix
     ./gnome.nix
   ];
 
