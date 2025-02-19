@@ -5,11 +5,15 @@
     # GNOME Extension Packages
     home.packages = with pkgs.gnomeExtensions; [
       useless-gaps
+      system-monitor
     ];
 
     dconf.settings = {
       # Enable GNOME Extensions
       "org/gnome/shell".enabled-extensions = pkgs.lib.map (extension: extension.extensionUuid) home.packages;
+
+      # Extension: system-monitor
+      "org/gnome/shell/extensions/system-monitor".show-swap = false;
 
       # Set dark mode
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
