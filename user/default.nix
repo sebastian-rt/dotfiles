@@ -9,6 +9,7 @@
     ./programs/development/git.nix
     ./programs/communication/vesktop.nix
     ./gnome.nix
+    ./docker.nix
   ];
 
   users.users.root.hashedPasswordFile = "/persist/secrets/password_root";
