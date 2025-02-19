@@ -158,6 +158,7 @@
     files = ["/etc/machine-id"]; # TODO persist /etc/machine-id in a declarative manner
     users.sebastian = {
       directories = [
+        ".mitmproxy"
         ".mozilla" # Temporary solution; Browser should be configured declaratively
         ".local/share/keyrings"
         ".ssh"
