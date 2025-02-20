@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home-manager.users.sebastian.programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
     ];

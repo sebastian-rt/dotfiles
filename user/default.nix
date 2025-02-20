@@ -5,7 +5,7 @@
     ./programs/audio/spot.nix # TODO: properly index all programs with a default.nix
     ./programs/tools/resources.nix
     ./programs/tools/blackbox.nix
-    ./programs/development/vscodium.nix
+    ./programs/development/vscode.nix
     ./programs/development/git.nix
     ./programs/communication/vesktop.nix
     ./gnome.nix
