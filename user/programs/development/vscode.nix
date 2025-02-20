@@ -4,6 +4,8 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
+      github.copilot
+      github.copilot-chat
     ];
     userSettings = {
       "window.titleBarStyle" = "custom"; # Use vscode window decorations
