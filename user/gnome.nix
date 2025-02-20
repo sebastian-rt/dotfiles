@@ -6,6 +6,7 @@
     home.packages = with pkgs.gnomeExtensions; [
       useless-gaps
       system-monitor
+      clipboard-history
     ];
 
     dconf.settings = {
@@ -14,6 +15,10 @@
 
       # Extension: system-monitor
       "org/gnome/shell/extensions/system-monitor".show-swap = false;
+
+      # Extension: clipboard-history
+      "org/gnome/shell/extensions/clipboard-history".window-width-percentage = 13;
+      "org/gnome/shell/extensions/clipboard-history".paste-on-selection = false;
 
       # Set dark mode
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
