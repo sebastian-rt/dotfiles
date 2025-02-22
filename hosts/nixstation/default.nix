@@ -161,6 +161,7 @@
         ".mitmproxy"
         ".mozilla" # Temporary solution; Browser should be configured declaratively
         ".local/share/keyrings"
+        ".config/Code"
         ".ssh"
         "Desktop"
         "Documents"
