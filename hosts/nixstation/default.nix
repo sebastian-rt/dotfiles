@@ -32,6 +32,15 @@
     enable = true;
   };
 
+  # Monitor Backlight Control
+  services.udev.extraRules = let
+    bash = "${pkgs.bash}/bin/bash";
+    ddcciDev = "NVIDIA i2c adapter 8 at 1:00.0";
+    ddcciNode = "/sys/bus/i2c/devices/i2c-11/new_device";
+  in ''
+    SUBSYSTEM=="i2c", ACTION=="add", ATTR{name}=="${ddcciDev}", RUN+="${bash} -c 'sleep 30; printf ddcci\ 0x37 > ${ddcciNode}'"
+  '';
+
   # Network
   networking.networkmanager.enable = true;
   networking.useDHCP = lib.mkDefault true;
@@ -61,8 +70,8 @@
       useOSProber = true;
     };
 
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    kernelModules = ["kvm-intel" "ddcci-backlight"];
+    extraModulePackages = with config.boot.kernelPackages; [ddcci-driver];
 
     initrd = {
       availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
