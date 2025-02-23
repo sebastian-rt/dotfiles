@@ -7,6 +7,7 @@
       useless-gaps
       system-monitor
       clipboard-history
+      window-list
     ];
 
     dconf.settings = {
