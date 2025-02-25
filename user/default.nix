@@ -8,6 +8,7 @@
     ./programs/development/vscode.nix
     ./programs/development/git.nix
     ./programs/communication/vesktop.nix
+    ./programs/productivity/remnote.nix
     ./gnome.nix
     ./docker.nix
   ];
