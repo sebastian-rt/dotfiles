@@ -110,6 +110,11 @@
     ''}"
   ];
 
+  # Disable automatic suspend
+  home-manager.users.sebastian.dconf.settings = {
+    "org/gnome/settings-daemon/plugins/power".sleep-inactive-ac-type = "nothing";
+  };
+
   services.journald.extraConfig = ''
     SystemMaxUse=100M
     RuntimeMaxUse=50M
