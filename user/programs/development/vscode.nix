@@ -24,4 +24,6 @@
       };
     };
   };
+
+  environment.persistence."/persist".users.sebastian.directories = [".config/Code"];
 }
