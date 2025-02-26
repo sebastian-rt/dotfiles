@@ -50,11 +50,28 @@
         "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
         "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+
+        # Media controls
+        "Control+XF86AudioRaiseVolume" = "exec playerctl next"; # Next
+        "Control+XF86AudioLowerVolume" = "exec playerctl previous"; # Previous
+        "Control+XF86AudioMute" = "exec playerctl play-pause"; # Play/Pause
+        "Control+Shift+XF86AudioRaiseVolume" = "exec playerctl position 5+"; # Seek forward
+        "Control+Shift+XF86AudioLowerVolume" = "exec playerctl position 5-"; # Seek backward
       };
     };
     checkConfig = false; # Is this required?
     #extraOptions = ["--unsupported-gpu"]; # See above
     wrapperFeatures.gtk = true;
+  };
+
+  systemd.user.services.playerctld = {
+    enable = true;
+    wantedBy = ["default.target"];
+    description = "Keep track of media player activity";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.playerctl}/bin/playerctld daemon";
+    };
   };
 
   # Keyring
@@ -74,5 +91,6 @@
     vim
     git
     wlsunset
+    playerctl
   ];
 }
