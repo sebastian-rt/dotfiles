@@ -42,6 +42,9 @@
       output."*" = {
         background = "~/Pictures/amber-d.png fill";
       };
+      startup = [
+        {command = "wlsunset -l 49.4 -L 8.7 -t 2000";}
+      ];
       keybindings = lib.mkOptionDefault {
         # Volume controls
         "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
@@ -70,5 +73,6 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    wlsunset
   ];
 }
