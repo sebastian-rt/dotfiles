@@ -48,7 +48,7 @@
     </monitors>
   '';
 in {
-  # Set primary display to 144Hz refresh rate
+  # Set primary display to 144Hz refresh rate (GNOME)
   # This has to be set on a per-user basis
   home-manager.users.sebastian.home.file.".config/monitors.xml".text = monitorsXml;
 
@@ -56,4 +56,13 @@ in {
   systemd.tmpfiles.rules = [
     "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm-monitors.xml" monitorsXml}"
   ];
+
+  # Set output mode for sway(fx)
+  home-manager.users.sebastian.wayland.windowManager.sway.config = {
+    output = {
+      "DP-3" = {
+        mode = "3440x1440@144.000Hz";
+      };
+    };
+  };
 }
