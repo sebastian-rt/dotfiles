@@ -59,6 +59,9 @@
 
   # Region & Locale
   services.xserver.xkb.layout = "de";
+  home-manager.users.sebastian.wayland.windowManager.sway.config = {
+    input."*".xkb_layout = "de";
+  };
 
   # Boot
   boot = {
