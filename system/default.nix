@@ -34,6 +34,11 @@
       # We can, however, override extraOptions manually:
       extraOptions = ["--unsupported-gpu"];
     };
+    config = {
+      output."*" = {
+        background = "~/Pictures/amber-d.png fill";
+      };
+    };
     checkConfig = false; # Is this required?
     #extraOptions = ["--unsupported-gpu"]; # See above
     wrapperFeatures.gtk = true;
