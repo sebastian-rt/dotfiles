@@ -24,6 +24,21 @@
     totem
   ];
 
+  security.polkit.enable = true;
+  services.displayManager.sessionPackages = [pkgs.swayfx];
+  home-manager.users.sebastian.wayland.windowManager.sway = {
+    enable = true;
+    package = pkgs.swayfx.override {
+      # The home-manager module only applies extraOptions to the default sway package for some reason
+      # Thus it only applies when not specifying a custom package
+      # We can, however, override extraOptions manually:
+      extraOptions = ["--unsupported-gpu"];
+    };
+    checkConfig = false; # Is this required?
+    #extraOptions = ["--unsupported-gpu"]; # See above
+    wrapperFeatures.gtk = true;
+  };
+
   # Keyring
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
