@@ -1,5 +1,9 @@
 # This file contains common system-level configuration for all hosts
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   system.stateVersion = "24.11";
 
   # TODO: Move to separate file
@@ -37,6 +41,12 @@
     config = {
       output."*" = {
         background = "~/Pictures/amber-d.png fill";
+      };
+      keybindings = lib.mkOptionDefault {
+        # Volume controls
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       };
     };
     checkConfig = false; # Is this required?
