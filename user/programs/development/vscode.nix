@@ -9,6 +9,7 @@
       github.copilot-chat
     ];
     userSettings = {
+        "telemetry.telemetryLevel" = "off";
       "window.titleBarStyle" = "custom"; # Use vscode window decorations
       "editor.formatOnSave" = true;
       "security.workspace.trust.enabled" = false;
