@@ -11,6 +11,7 @@
     ./programs/productivity/remnote.nix
     ./gnome.nix
     ./docker.nix
+    ./programs/web/librewolf/default.nix
   ];
 
   users.users.root.hashedPasswordFile = "/persist/secrets/password_root";

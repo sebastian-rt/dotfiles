@@ -85,8 +85,6 @@
     pulse.enable = true;
   };
 
-  programs.firefox.enable = true;
-
   # Some basic packages
   environment.systemPackages = with pkgs; [
     vim

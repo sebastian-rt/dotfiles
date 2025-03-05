@@ -176,7 +176,7 @@
     users.sebastian = {
       directories = [
         ".mitmproxy"
-        ".mozilla" # Temporary solution; Browser should be configured declaratively
+        ".librewolf"
         ".local/share/keyrings"
         ".ssh"
         "Desktop"
