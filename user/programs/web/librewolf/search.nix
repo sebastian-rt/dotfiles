@@ -15,6 +15,18 @@
       iconUpdateURL = "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
+    "GitHub Repositories" = {
+      urls = [{template = "https://search.nixos.org/packages?query={searchTerms}";}];
+      definedAliases = ["@github"];
+      iconUpdateURL = "https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg";
+      updateInterval = 7 * 24 * 60 * 60 * 1000;
+    };
+    "grep.app" = {
+      urls = [{template = "https://grep.app/search?q={searchTerms}";}];
+      definedAliases = ["@grep"];
+      iconUpdateURL = "https://grep.app/apple-icon.png";
+      updateInterval = 7 * 24 * 60 * 60 * 1000;
+    };
     "NixOS Packages" = {
       urls = [{template = "https://search.nixos.org/packages?query={searchTerms}";}];
       definedAliases = ["@nixpkgs"];
@@ -83,5 +95,5 @@
     };
     Bing.metaData.hidden = true;
   };
-  order = ["Brave Search" "YouTube" "NixOS Packages" "NixOS Options" "Home Manager Options" "Arch Wiki" "Arch Packages" "AUR" "Firefox Addons" "OpenStreetMap" "Google Maps" "Reddit" "Wayback Machine"];
+  order = ["Brave Search" "YouTube" "GitHub Repositories" "grep.app" "NixOS Packages" "NixOS Options" "Home Manager Options" "Arch Wiki" "Arch Packages" "AUR" "Firefox Addons" "OpenStreetMap" "Google Maps" "Reddit" "Wayback Machine"];
 }
