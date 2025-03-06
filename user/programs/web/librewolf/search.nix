@@ -1,4 +1,4 @@
-{...}: {
+{
   default = "Brave Search";
   privateDefault = "Brave Search";
   force = true;
