@@ -11,9 +11,9 @@
           nixpkgs.hostPlatform = system;
         }
 
-        # Make unstable nixpkgs available under nixpkgs.unstable
         {
           nixpkgs.overlays = [
+            # Make unstable nixpkgs available under nixpkgs.unstable
             (final: prev: {
               unstable = import nixpkgs-unstable {
                 inherit system;
@@ -22,6 +22,9 @@
             })
           ];
         }
+
+        # NUR module (adds nixpkgs overlay)
+        inputs.nur.modules.nixos.default
 
         impermanence.nixosModules.impermanence
 
