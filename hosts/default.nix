@@ -1,10 +1,5 @@
-{
-  nixpkgs,
-  nixpkgs-unstable,
-  impermanence,
-  home-manager,
-  ...
-}: let
+{inputs, ...}: let
+  inherit (inputs) nixpkgs nixpkgs-unstable impermanence home-manager;
   # Credit: https://github.com/sioodmy/dotfiles/blob/e107483729b29299687ffae03b7f066de7a2f5da/hosts/default.nix
   mkHost = name: system:
     nixpkgs.lib.nixosSystem {

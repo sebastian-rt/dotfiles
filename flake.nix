@@ -12,13 +12,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nixpkgs-unstable,
-    impermanence,
-    home-manager,
-    ...
-  } @ inputs: {
-    nixosConfigurations = import ./hosts {inherit nixpkgs nixpkgs-unstable impermanence home-manager;};
+  outputs = {...} @ inputs: {
+    nixosConfigurations = import ./hosts {inherit inputs;};
   };
 }
