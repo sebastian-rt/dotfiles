@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   home-manager.users.sebastian.programs.librewolf = {
     enable = true;
     settings = {
@@ -14,6 +14,13 @@
       sebastian = {
         settings = import ./preferences.nix;
         search = import ./search.nix;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+          addy_io
+          untrap-for-youtube
+          tridactyl
+        ];
       };
     };
   };
