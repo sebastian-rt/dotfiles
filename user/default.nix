@@ -1,17 +1,10 @@
 # This file contains user-level configuration for my primary user (sebastian)
 {pkgs, ...}: {
   imports = [
+    ./programs
     ./packages.nix
-    ./programs/audio/spot.nix # TODO: properly index all programs with a default.nix
-    ./programs/tools/resources.nix
-    ./programs/tools/blackbox.nix
-    ./programs/development/vscode.nix
-    ./programs/development/git.nix
-    ./programs/communication/vesktop.nix
-    ./programs/productivity/remnote.nix
     ./gnome.nix
     ./docker.nix
-    ./programs/web/librewolf/default.nix
   ];
 
   users.users.root.hashedPasswordFile = "/persist/secrets/password_root";
