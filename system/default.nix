@@ -100,5 +100,6 @@
     git
     wlsunset
     playerctl
+    file
   ];
 }
