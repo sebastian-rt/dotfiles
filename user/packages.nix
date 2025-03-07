@@ -4,5 +4,6 @@
     nixd
     hello
     libreoffice-fresh
+    ffmpeg-full
   ];
 }
