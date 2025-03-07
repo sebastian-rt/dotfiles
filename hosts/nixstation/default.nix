@@ -168,7 +168,7 @@
     enable = true;
     hideMounts = true;
     directories = [
-      "/var/log"
+      "/var/lib/cups"
       "/var/lib/nixos"
       "/var/lib/bluetooth"
     ];

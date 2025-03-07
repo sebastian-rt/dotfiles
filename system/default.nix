@@ -85,6 +85,15 @@
     pulse.enable = true;
   };
 
+  # Printing
+  services.printing.enable = true;
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # Some basic packages
   environment.systemPackages = with pkgs; [
     vim
