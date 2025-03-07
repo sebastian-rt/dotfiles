@@ -101,5 +101,6 @@
     wlsunset
     playerctl
     file
+    ripgrep-all
   ];
 }
