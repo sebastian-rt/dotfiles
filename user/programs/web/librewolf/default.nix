@@ -5,8 +5,16 @@
       # These overwrite the librewolf defaults
       "webgl.disabled" = false;
       "privacy.resistFingerprinting" = false;
+      "privacy.donottrackheader.enabled" = true;
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.downloads" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+      "privacy.clearOnShutdown.cache" = false;
+      "privacy.clearSiteData.cache" = false;
+      "privacy.clearSiteData.cookiesAndStorage" = false;
+      "privacy.clearOnShutdown_v2.cache" = false;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+      "privacy.sanitize.sanitizeOnShutdown" = false;
       "middlemouse.paste" = false;
       "general.autoScroll" = true;
     };

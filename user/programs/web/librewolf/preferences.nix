@@ -164,6 +164,7 @@
   # visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 
   "identity.fxaccounts.enabled" = true; # Enable Firefox Accounts
+  "browser.translations.automaticallyPopup" = false; # Disable Translation Popup
 
   # Disable Autofill
   "signon.rememberSignons" = false;
