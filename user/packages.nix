@@ -6,5 +6,6 @@
     libreoffice-fresh
     ffmpeg-full
     yt-dlp
+    amberol
   ];
 }
