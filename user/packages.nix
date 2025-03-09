@@ -7,5 +7,6 @@
     ffmpeg-full
     yt-dlp
     amberol
+    gh
   ];
 }
