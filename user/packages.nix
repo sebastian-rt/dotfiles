@@ -11,5 +11,6 @@
     wget
     gnome-solanum
     gimp
+    android-studio
   ];
 }
