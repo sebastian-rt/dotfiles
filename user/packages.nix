@@ -9,5 +9,6 @@
     amberol
     gh
     wget
+    gnome-solanum
   ];
 }
