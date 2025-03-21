@@ -12,5 +12,6 @@
     gnome-solanum
     gimp
     android-studio
+    android-tools
   ];
 }
