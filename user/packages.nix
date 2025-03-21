@@ -8,5 +8,6 @@
     yt-dlp
     amberol
     gh
+    wget
   ];
 }
