@@ -10,5 +10,6 @@
     gh
     wget
     gnome-solanum
+    gimp
   ];
 }
