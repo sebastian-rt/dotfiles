@@ -8,6 +8,7 @@
         ms-python.python
         github.copilot
         github.copilot-chat
+        ms-vsliveshare.vsliveshare
       ];
       userSettings = {
         "telemetry.telemetryLevel" = "off";
