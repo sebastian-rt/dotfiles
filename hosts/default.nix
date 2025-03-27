@@ -26,6 +26,10 @@
         # NUR module (adds nixpkgs overlay)
         inputs.nur.modules.nixos.default
 
+        # Pre-built nix-index database + comma
+        inputs.nix-index-database.nixosModules.nix-index
+        {programs.nix-index-database.comma.enable = true;}
+
         impermanence.nixosModules.impermanence
 
         # TODO: move?
