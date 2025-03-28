@@ -13,5 +13,6 @@
     android-studio
     openssl
     android-tools
+    htop
   ];
 }
