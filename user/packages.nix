@@ -7,7 +7,6 @@
     ffmpeg-full
     yt-dlp
     amberol
-    gh
     wget
     gnome-solanum
     gimp
