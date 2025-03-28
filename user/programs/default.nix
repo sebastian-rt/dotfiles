@@ -4,6 +4,7 @@
     ./communication
     ./development
     ./productivity
+    ./shell
     ./tools
     ./web
   ];
