@@ -94,6 +94,11 @@
     openFirewall = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+  };
+
   # Some basic packages
   environment.systemPackages = with pkgs; [
     vim

@@ -13,6 +13,7 @@
     hashedPasswordFile = "/persist/secrets/password_sebastian";
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     description = "Sebastian";
+    shell = pkgs.zsh; # zsh is installed in /system/default.nix
   };
 
   home-manager.users.sebastian = {
