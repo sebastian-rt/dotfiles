@@ -10,7 +10,6 @@
     wget
     gnome-solanum
     gimp
-    android-studio
     openssl
     android-tools
     htop

@@ -175,12 +175,10 @@
     files = ["/etc/machine-id"]; # TODO persist /etc/machine-id in a declarative manner
     users.sebastian = {
       directories = [
-        ".android"
         ".mitmproxy"
         ".librewolf"
         ".local/share/keyrings"
         ".ssh"
-        "Android"
         "Desktop"
         "Documents"
         "Downloads"
