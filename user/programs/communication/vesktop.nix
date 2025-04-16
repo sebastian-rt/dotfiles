@@ -4,5 +4,5 @@
       vesktop
     ];
   };
-  environment.persistence."/persist".users.sebastian.directories = [".config/vesktop"];
+  environment.persistence."/persist/user".users.sebastian.directories = [".config/vesktop"];
 }

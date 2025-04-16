@@ -9,7 +9,12 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./monitors.nix
+    ./disko-config.nix
   ];
+
+  fileSystems."/nix".neededForBoot = true;
+  fileSystems."/persist/system".neededForBoot = true;
+  fileSystems."/persist/user".neededForBoot = true;
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages on this host
 
@@ -123,48 +128,8 @@
     RuntimeMaxUse=50M
   '';
 
-  # File system mounts
-  # Root is ephemeral in-memory tmpfs
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = ["size=4G" "mode=755"];
-  };
-
-  # We use this to save the video memory of NVIDIA GPUs before suspend (see above)
-  # Ramfs seems to be a bit more performant than tmpfs here
-  # More info: https://download.nvidia.com/XFree86/Linux-x86_64/565.77/README/powermanagement.html
-  fileSystems."/tmp/vram" = {
-    device = "none";
-    fsType = "ramfs";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXBOOT";
-    neededForBoot = true;
-    fsType = "vfat";
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/root_vg/root";
-    neededForBoot = true;
-    fsType = "btrfs";
-    options = ["noatime" "discard" "subvol=nix" "compress=zstd"];
-  };
-
-  fileSystems."/persist" = {
-    neededForBoot = true;
-    device = "/dev/root_vg/root";
-    fsType = "btrfs";
-    options = ["noatime" "discard" "subvol=persist" "compress=zstd"];
-  };
-
-  swapDevices = [
-    {device = "/dev/root_vg/swap";}
-  ];
-
   # Impermanence
-  environment.persistence."/persist" = {
+  environment.persistence."/persist/system" = {
     enable = true;
     hideMounts = true;
     directories = [
@@ -173,6 +138,11 @@
       "/var/lib/bluetooth"
     ];
     files = ["/etc/machine-id"]; # TODO persist /etc/machine-id in a declarative manner
+  };
+
+  environment.persistence."/persist/user" = {
+    enable = true;
+    hideMounts = true;
     users.sebastian = {
       directories = [
         ".mitmproxy"
@@ -186,6 +156,7 @@
         "nixos-config"
         "Pictures"
         "Videos"
+        "Virtual Machines"
       ];
     };
   };

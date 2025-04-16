@@ -4,5 +4,5 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-  environment.persistence."/persist".directories = ["/var/lib/libvirt"];
+  environment.persistence."/persist/system".directories = ["/var/lib/libvirt"];
 }

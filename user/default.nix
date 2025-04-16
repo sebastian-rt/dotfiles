@@ -7,10 +7,10 @@
     ./docker.nix
   ];
 
-  users.users.root.hashedPasswordFile = "/persist/secrets/password_root";
+  users.users.root.hashedPasswordFile = "/persist/system/secrets/password_root";
   users.users.sebastian = {
     isNormalUser = true;
-    hashedPasswordFile = "/persist/secrets/password_sebastian";
+    hashedPasswordFile = "/persist/system/secrets/password_sebastian";
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     description = "Sebastian";
     shell = pkgs.zsh; # zsh is installed in /system/default.nix

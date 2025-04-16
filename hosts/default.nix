@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  inherit (inputs) nixpkgs nixpkgs-unstable impermanence home-manager;
+  inherit (inputs) nixpkgs nixpkgs-unstable impermanence home-manager disko;
   # Credit: https://github.com/sioodmy/dotfiles/blob/e107483729b29299687ffae03b7f066de7a2f5da/hosts/default.nix
   mkHost = name: system:
     nixpkgs.lib.nixosSystem {
@@ -29,6 +29,8 @@
         # Pre-built nix-index database + comma
         inputs.nix-index-database.nixosModules.nix-index
         {programs.nix-index-database.comma.enable = true;}
+
+        disko.nixosModules.disko
 
         impermanence.nixosModules.impermanence
 

@@ -36,5 +36,5 @@
     '';
   };
 
-  environment.persistence."/persist".users.sebastian.directories = [".config/Code"];
+  environment.persistence."/persist/user".users.sebastian.directories = [".config/Code"];
 }

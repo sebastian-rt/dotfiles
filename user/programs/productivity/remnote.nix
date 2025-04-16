@@ -3,5 +3,5 @@
     remnote
   ];
 
-  environment.persistence."/persist".users.sebastian.directories = ["remnote" ".config/RemNote"];
+  environment.persistence."/persist/user".users.sebastian.directories = ["remnote" ".config/RemNote"];
 }

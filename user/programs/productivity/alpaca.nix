@@ -3,5 +3,5 @@
     pkgs.alpaca
   ];
 
-  environment.persistence."/persist".users.sebastian.directories = [".local/share/com.jeffser.Alpaca"];
+  environment.persistence."/persist/user".users.sebastian.directories = [".local/share/com.jeffser.Alpaca"];
 }

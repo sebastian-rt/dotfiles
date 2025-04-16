@@ -15,5 +15,5 @@
       }))
   ];
 
-  environment.persistence."/persist".users.sebastian.directories = [".cache/spot"];
+  environment.persistence."/persist/user".users.sebastian.directories = [".cache/spot"];
 }

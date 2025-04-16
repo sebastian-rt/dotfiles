@@ -3,7 +3,7 @@
     android-studio
   ];
 
-  environment.persistence."/persist".users.sebastian.directories = [
+  environment.persistence."/persist/user".users.sebastian.directories = [
     ".android"
     "Android"
   ];
