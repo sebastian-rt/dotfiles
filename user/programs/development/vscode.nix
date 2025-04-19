@@ -9,11 +9,13 @@
         github.copilot
         github.copilot-chat
         ms-vsliveshare.vsliveshare
+        esbenp.prettier-vscode
       ];
       userSettings = {
         "telemetry.telemetryLevel" = "off";
         "window.titleBarStyle" = "custom"; # Use vscode window decorations
         "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "security.workspace.trust.enabled" = false;
         # Nix IDE Extension
         "nix.serverPath" = "nixd";
