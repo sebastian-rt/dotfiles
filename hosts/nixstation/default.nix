@@ -32,6 +32,34 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # Sound
+  services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    "context.properties" = {
+      "default.clock.rate" = 192000;
+      "default.clock.quantum" = 128;
+      "default.clock.min-quantum" = 128;
+      "default.clock.max-quantum" = 128;
+    };
+  };
+  services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
+    context.modules = [
+      {
+        name = "libpipewire-module-protocol-pulse";
+        args = {
+          pulse.min.req = "128/192000";
+          pulse.default.req = "128/192000";
+          pulse.max.req = "128/192000";
+          pulse.min.quantum = "128/192000";
+          pulse.max.quantum = "128/192000";
+        };
+      }
+    ];
+    stream.properties = {
+      node.latency = "128/192000";
+      resample.quality = 1;
+    };
+  };
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
