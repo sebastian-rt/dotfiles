@@ -6,7 +6,6 @@
     libreoffice-fresh
     ffmpeg-full
     yt-dlp
-    amberol
     wget
     gnome-solanum
     gimp
