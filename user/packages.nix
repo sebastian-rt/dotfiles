@@ -12,5 +12,6 @@
     openssl
     android-tools
     htop
+    wl-clipboard
   ];
 }
