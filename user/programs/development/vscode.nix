@@ -27,6 +27,9 @@
             };
           };
         };
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
       };
     };
 
