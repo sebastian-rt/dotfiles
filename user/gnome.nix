@@ -49,6 +49,7 @@
       "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_terminal/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_warp/"
       ];
 
       # Shortcut: Open Resources
@@ -62,6 +63,12 @@
         name = "Open Terminal";
         command = "blackbox";
         binding = "<Control><Alt>T";
+      };
+      # Shortcut: Open Warp
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_warp" = {
+        name = "Open Warp";
+        command = "warp";
+        binding = "<Control><Alt>W";
       };
     };
   };
