@@ -1,5 +1,9 @@
 # This file contains user-level configuration for my primary user (sebastian)
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./programs
     ./packages.nix
@@ -7,10 +11,10 @@
     ./docker.nix
   ];
 
-  users.users.root.hashedPasswordFile = "/persist/system/secrets/password_root";
+  users.users.root.hashedPasswordFile = config.sops.secrets."user_passwords/root".path;
   users.users.sebastian = {
     isNormalUser = true;
-    hashedPasswordFile = "/persist/system/secrets/password_sebastian";
+    hashedPasswordFile = config.sops.secrets."user_passwords/sebastian".path;
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     description = "Sebastian";
     shell = pkgs.zsh; # zsh is installed in /system/default.nix
