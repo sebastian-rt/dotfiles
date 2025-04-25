@@ -143,6 +143,7 @@
         ".mitmproxy"
         ".librewolf"
         ".local/share/keyrings"
+        ".config/sops/age"
         ".ssh"
         "Desktop"
         "Documents"

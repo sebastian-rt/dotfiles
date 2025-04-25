@@ -41,6 +41,10 @@
           home-manager.useUserPackages = true;
         }
 
+        # sops-nix
+        inputs.sops-nix.nixosModules.sops
+        ../modules/sops.nix
+
         # Host specific configuration
         ./${name}
 
