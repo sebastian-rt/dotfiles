@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./monitors.nix
     ./disko-config.nix
+    ../../modules/nvidia
   ];
 
   fileSystems."/nix".neededForBoot = true;
@@ -22,15 +23,10 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   # NVIDIA Drivers
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  easyNvidia.enable = true;
+  easyNvidia.withIntegratedGPU = false;
+  easyNvidia.vaapi.enable = true;
+  hardware.nvidia.nvidiaSettings = true;
 
   # Enable OpenGL
   hardware.graphics = {
@@ -103,7 +99,6 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
-      "nvidia.NVreg_TemporaryFilePath=/tmp/vram" # Save VRAM to /tmp on suspend
     ];
   };
 

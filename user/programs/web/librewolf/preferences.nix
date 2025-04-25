@@ -159,13 +159,6 @@
   "findbar.highlightAll" = true;
   "layout.word_select.eat_space_to_next_word" = false;
 
-  # START: MY OVERRIDES
-  # visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
-  # visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
-
-  "identity.fxaccounts.enabled" = true; # Enable Firefox Accounts
-  "browser.translations.automaticallyPopup" = false; # Disable Translation Popup
-
   # Disable Autofill
   "signon.rememberSignons" = false;
   "extensions.formautofill.addresses.enabled" = false;
@@ -189,4 +182,18 @@
   "general.smoothScroll.currentVelocityWeighting" = "1";
   "general.smoothScroll.stopDecelerationWeighting" = "1";
   "mousewheel.default.delta_multiplier_y" = 300;
+
+  # START: MY OVERRIDES
+  # visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
+  # visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
+
+  "identity.fxaccounts.enabled" = true; # Enable Firefox Accounts
+  "browser.translations.automaticallyPopup" = false; # Disable Translation Popup
+
+  # VAAPI
+  "media.ffmpeg.vaapi.enabled" = true;
+  "media.rdd-ffmpeg.enabled" = true;
+  "media.av1.enabled" = true;
+  "gfx.x11-egl.force-enabled" = true;
+  "widget.dmabuf.force-enabled" = true;
 }
