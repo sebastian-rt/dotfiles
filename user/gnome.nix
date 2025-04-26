@@ -45,6 +45,9 @@
       # Disable "Welcome to GNOME" dialog
       "org/gnome/shell".welcome-dialog-last-shown-version = "999"; # A huge number represents a version that doesn't yet exist, effectively disabling the dialog
 
+      # Pinned apps
+      "org/gnome/shell".favorite-apps = ["librewolf.desktop" "dev.alextren.Spot.desktop" "org.gnome.Nautilus.desktop" "obsidian.desktop" "vesktop.desktop"];
+
       # Shortcuts
       "org/gnome/shell/keybindings".screenshot = ["<Super>Return"];
       "org/gnome/shell/keybindings".show-screenshot-ui = ["<Shift><Alt>s"];
