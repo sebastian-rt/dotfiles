@@ -46,6 +46,11 @@
       "org/gnome/shell".welcome-dialog-last-shown-version = "999"; # A huge number represents a version that doesn't yet exist, effectively disabling the dialog
 
       # Shortcuts
+      "org/gnome/shell/keybindings".screenshot = ["<Super>Return"];
+      "org/gnome/shell/keybindings".show-screenshot-ui = ["<Shift><Alt>s"];
+      "org/gnome/shell/keybindings".screenshot-window = ["<Shift><Super>s"];
+
+      # Custom Shortcuts
       "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_resources/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/open_terminal/"
