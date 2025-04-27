@@ -20,8 +20,25 @@
     shell = pkgs.zsh; # zsh is installed in /system/default.nix
   };
 
+  services.udev.extraRules = config.home-manager.users.sebastian.programs.easyeffects.newDeviceUdevHook; # TODO: come up with a better solution for this
+
   home-manager.users.sebastian = {
+    imports = [
+      ../modules/easyeffects
+    ];
     programs.home-manager.enable = true;
+
+    programs.easyeffects = {
+      enable = true;
+      runAsService = true;
+      presets.output = [
+        ./programs/audio/easyeffects/presets/None.json
+        (./programs/audio/easyeffects/presets + "/DT 770 Pro Balanced Bass.json")
+      ];
+      devicePresets = {
+        "alsa_output.usb-Focusrite_Scarlett_Solo_USB_*" = "DT 770 Pro Balanced Bass";
+      };
+    };
 
     home.username = "sebastian";
     home.homeDirectory = "/home/sebastian";
