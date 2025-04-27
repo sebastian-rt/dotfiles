@@ -10,6 +10,7 @@
         github.copilot-chat
         ms-vsliveshare.vsliveshare
         esbenp.prettier-vscode
+        vscodevim.vim
       ];
       userSettings = {
         "telemetry.telemetryLevel" = "off";
@@ -29,6 +30,10 @@
         };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
+        # VSCode Vim
+        "vim.handleKeys" = {
+          "<C-p>" = false;
         };
       };
     };
