@@ -13,5 +13,6 @@
     android-tools
     htop
     wl-clipboard
+    clapper
   ];
 }
