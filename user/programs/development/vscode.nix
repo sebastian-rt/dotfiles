@@ -35,6 +35,7 @@
         "vim.handleKeys" = {
           "<C-p>" = false;
         };
+        "vim.useSystemClipboard" = true;
       };
     };
 
