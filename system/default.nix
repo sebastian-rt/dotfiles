@@ -103,7 +103,13 @@
 
   # Some basic packages
   environment.systemPackages = with pkgs; [
-    vim
+    (vim.overrideAttrs (oldAttrs: {
+      postInstall =
+        (oldAttrs.postInstall)
+        + ''
+          sed -i '/^MimeType=/d' $out/share/applications/*.desktop
+        '';
+    }))
     git
     wlsunset
     playerctl
