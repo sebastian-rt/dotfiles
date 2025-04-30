@@ -37,6 +37,18 @@
         };
         "vim.useSystemClipboard" = true;
       };
+      keybindings = [
+        {
+          key = "ctrl+[IntlBackslash]";
+          command = "workbench.action.focusActiveEditorGroup";
+          when = "!editorFocus";
+        }
+        {
+          key = "ctrl+[IntlBackslash]";
+          command = "terminal.focus";
+          when = "editorFocus";
+        }
+      ];
     };
 
     home.file.".vscode/argv.json".text = ''
