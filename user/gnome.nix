@@ -78,6 +78,9 @@
         command = "warp";
         binding = "<Control><Alt>W";
       };
+
+      # Other
+      "ca/desrt/dconf-editor".show-warning = false;
     };
   };
 }
