@@ -116,4 +116,17 @@
     file
     ripgrep-all
   ];
+
+  # Allow execution of nixos-rebuild without password prompt
+  security.sudo.extraRules = [
+    {
+      users = ["sebastian"];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/nixos-rebuild";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 }
