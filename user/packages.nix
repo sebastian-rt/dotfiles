@@ -7,7 +7,6 @@
     yt-dlp
     wget
     gnome-solanum
-    gimp
     openssl
     android-tools
     htop
