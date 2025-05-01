@@ -20,6 +20,14 @@
     shell = pkgs.zsh; # zsh is installed in /system/default.nix
   };
 
+  # Allows bluetooth media controls to be used
+  systemd.user.services.mpris-proxy = {
+    description = "MPRIS proxy";
+    after = ["network.target" "sound.target"];
+    wantedBy = ["default.target"];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
+
   services.udev.extraRules = config.home-manager.users.sebastian.programs.easyeffects.newDeviceUdevHook; # TODO: come up with a better solution for this
 
   home-manager.users.sebastian = {
