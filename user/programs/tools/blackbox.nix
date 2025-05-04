@@ -9,6 +9,7 @@
     dconf.settings."com/raggesilver/BlackBox" = {
       use-custom-command = true;
       custom-shell-command = "${pkgs.tmux}/bin/tmux";
+      use-sixel = true;
     };
   };
 
