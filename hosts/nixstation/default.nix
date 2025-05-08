@@ -55,6 +55,10 @@
   # wait-online:
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  # Connection with apple devices
+  services.usbmuxd.enable = true;
+  environment.systemPackages = [pkgs.libimobiledevice];
+
   # Date & Time
   time.timeZone = "Europe/Berlin";
 
