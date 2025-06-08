@@ -22,7 +22,7 @@
       sebastian = {
         settings = import ./preferences.nix;
         search = import ./search.nix;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           bitwarden
           addy_io

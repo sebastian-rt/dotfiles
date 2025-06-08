@@ -3,52 +3,54 @@
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
-      extensions = with pkgs.vscode-extensions; [
-        jnoortheen.nix-ide
-        ms-python.python
-        github.copilot
-        github.copilot-chat
-        ms-vsliveshare.vsliveshare
-        esbenp.prettier-vscode
-        vscodevim.vim
-      ];
-      userSettings = {
-        "telemetry.telemetryLevel" = "off";
-        "window.titleBarStyle" = "custom"; # Use vscode window decorations
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "security.workspace.trust.enabled" = false;
-        # Nix IDE Extension
-        "nix.serverPath" = "nixd";
-        "nix.enableLanguageServer" = true;
-        "nix.serverSettings" = {
-          "nixd" = {
-            "formatting" = {
-              "command" = ["alejandra"];
+      profiles.default = {
+        extensions = with pkgs.vscode-extensions; [
+          jnoortheen.nix-ide
+          ms-python.python
+          github.copilot
+          github.copilot-chat
+          ms-vsliveshare.vsliveshare
+          esbenp.prettier-vscode
+          vscodevim.vim
+        ];
+        userSettings = {
+          "telemetry.telemetryLevel" = "off";
+          "window.titleBarStyle" = "custom"; # Use vscode window decorations
+          "editor.formatOnSave" = true;
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "security.workspace.trust.enabled" = false;
+          # Nix IDE Extension
+          "nix.serverPath" = "nixd";
+          "nix.enableLanguageServer" = true;
+          "nix.serverSettings" = {
+            "nixd" = {
+              "formatting" = {
+                "command" = ["alejandra"];
+              };
             };
           };
+          "[nix]" = {
+            "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          };
+          # VSCode Vim
+          "vim.handleKeys" = {
+            "<C-p>" = false;
+          };
+          "vim.useSystemClipboard" = true;
         };
-        "[nix]" = {
-          "editor.defaultFormatter" = "jnoortheen.nix-ide";
-        };
-        # VSCode Vim
-        "vim.handleKeys" = {
-          "<C-p>" = false;
-        };
-        "vim.useSystemClipboard" = true;
+        keybindings = [
+          {
+            key = "ctrl+[IntlBackslash]";
+            command = "workbench.action.focusActiveEditorGroup";
+            when = "!editorFocus";
+          }
+          {
+            key = "ctrl+[IntlBackslash]";
+            command = "terminal.focus";
+            when = "editorFocus";
+          }
+        ];
       };
-      keybindings = [
-        {
-          key = "ctrl+[IntlBackslash]";
-          command = "workbench.action.focusActiveEditorGroup";
-          when = "!editorFocus";
-        }
-        {
-          key = "ctrl+[IntlBackslash]";
-          command = "terminal.focus";
-          when = "editorFocus";
-        }
-      ];
     };
 
     home.file.".vscode/argv.json".text = ''
