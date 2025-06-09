@@ -129,4 +129,15 @@
       ];
     }
   ];
+
+  # Temporary SSH
+  services.openssh = {
+    enable = true;
+    ports = [ 60022 ];
+    settings = {
+      PasswordAuthentication = true;
+      PermitRootLogin = "prohibit-password";
+    };
+  };
+  networking.firewall.allowedTCPPorts = [ 60022 ];
 }
