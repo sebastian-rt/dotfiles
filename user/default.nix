@@ -37,7 +37,7 @@
     programs.home-manager.enable = true;
 
     programs.easyeffects = {
-      enable = true;
+      #enable = true;
       runAsService = true;
       presets.output = [
         ./programs/audio/easyeffects/presets/None.json
