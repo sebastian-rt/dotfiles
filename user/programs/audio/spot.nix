@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian.home.packages = with pkgs; [
+{username}: {pkgs, ...}: {
+  home-manager.users.${username}.home.packages = with pkgs; [
     # Here we patch the spot package to fix a bug that prevents playlists without a user added image from showing up
     # See here: https://github.com/xou816/spot/pull/716
     (spot.overrideAttrs
@@ -15,5 +15,5 @@
       }))
   ];
 
-  environment.persistence."/persist/user".users.sebastian.directories = [".cache/spot"];
+  environment.persistence."/persist/user".users.${username}.directories = [".cache/spot"];
 }

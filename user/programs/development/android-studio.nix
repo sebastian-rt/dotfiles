@@ -1,9 +1,9 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian.home.packages = with pkgs; [
+{username}: {pkgs, ...}: {
+  home-manager.users.${username}.home.packages = with pkgs; [
     android-studio
   ];
 
-  environment.persistence."/persist/user".users.sebastian.directories = [
+  environment.persistence."/persist/user".users.${username}.directories = [
     ".android"
     "Android"
   ];

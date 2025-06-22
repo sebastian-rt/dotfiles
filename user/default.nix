@@ -3,21 +3,29 @@
   pkgs,
   config,
   ...
-}: {
-  imports = [
-    ./programs
-    ./packages.nix
-    ./gnome.nix
-    ./docker.nix
-  ];
+}: let
+  username = "sebastian";
+in {
+  imports =
+    map
+    (module: (import module {inherit username;})) # The username argument is passed on by the intermediate modules to the corresponding "hybrid" modules
+    
+    [
+      ./programs
+      ./packages.nix
+      ./gnome.nix
+      ./docker.nix
+    ];
 
-  users.users.root.hashedPasswordFile = config.sops.secrets."user_passwords/root".path;
-  users.users.sebastian = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."user_passwords/sebastian".path;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
-    description = "Sebastian";
-    shell = pkgs.zsh; # zsh is installed in /system/default.nix
+  users.users = {
+    root.hashedPasswordFile = config.sops.secrets."user_passwords/root".path;
+    ${username} = {
+      isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets."user_passwords/${username}".path;
+      extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+      description = "Sebastian";
+      shell = pkgs.zsh; # zsh is installed in /system/default.nix
+    };
   };
 
   # Allows bluetooth media controls to be used
@@ -28,9 +36,9 @@
     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
   };
 
-  services.udev.extraRules = config.home-manager.users.sebastian.programs.easyeffects.newDeviceUdevHook; # TODO: come up with a better solution for this
+  services.udev.extraRules = config.home-manager.users.${username}.programs.easyeffects.newDeviceUdevHook; # TODO: come up with a better solution for this
 
-  home-manager.users.sebastian = {
+  home-manager.users.${username} = {
     imports = [
       ../modules/easyeffects
     ];
@@ -48,8 +56,8 @@
       };
     };
 
-    home.username = "sebastian";
-    home.homeDirectory = "/home/sebastian";
+    home.username = username;
+    home.homeDirectory = "/home/${username}";
 
     home.stateVersion = "25.05";
   };

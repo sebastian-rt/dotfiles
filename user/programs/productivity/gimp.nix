@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian.home.packages = with pkgs; [
+{username}: {pkgs, ...}: {
+  home-manager.users.${username}.home.packages = with pkgs; [
     (gimp.overrideAttrs (oldAttrs: {
       postInstall =
         (oldAttrs.postInstall or "")

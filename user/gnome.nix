@@ -1,6 +1,6 @@
 # User-level GNOME configuration
-{pkgs, ...}: {
-  home-manager.users.sebastian = {lib, ...}: rec {
+{username}: {pkgs, ...}: {
+  home-manager.users.${username} = {lib, ...}: rec {
     dconf.enable = true;
     # GNOME Extension Packages
     home.packages = with pkgs.gnomeExtensions; [

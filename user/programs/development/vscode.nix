@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian = {
+{username}: {pkgs, ...}: {
+  home-manager.users.${username} = {
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
@@ -61,5 +61,5 @@
     '';
   };
 
-  environment.persistence."/persist/user".users.sebastian.directories = [".config/Code"];
+  environment.persistence."/persist/user".users.${username}.directories = [".config/Code"];
 }

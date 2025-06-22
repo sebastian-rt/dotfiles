@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian.programs.librewolf = {
+{username}: {pkgs, ...}: {
+  home-manager.users.${username}.programs.librewolf = {
     enable = true;
     settings = {
       # These overwrite the librewolf defaults
@@ -19,7 +19,7 @@
       "general.autoScroll" = true;
     };
     profiles = {
-      sebastian = {
+      ${username} = {
         settings = import ./preferences.nix;
         search = import ./search.nix;
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [

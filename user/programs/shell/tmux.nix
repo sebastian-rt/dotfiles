@@ -1,5 +1,5 @@
-{...}: {
-  home-manager.users.sebastian.programs.tmux = {
+{username}: {...}: {
+  home-manager.users.${username}.programs.tmux = {
     enable = true;
     clock24 = true;
   };

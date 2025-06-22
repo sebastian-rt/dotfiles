@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.sebastian = {
+{username}: {pkgs, ...}: {
+  home-manager.users.${username} = {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

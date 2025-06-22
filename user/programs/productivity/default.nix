@@ -1,5 +1,5 @@
-{...}: {
-  imports = [
+{username}: {...}: {
+  imports = map (module: import module {inherit username;}) [
     ./alpaca.nix
     ./blender.nix
     ./chatgpt-cli.nix

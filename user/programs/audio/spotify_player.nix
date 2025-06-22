@@ -1,9 +1,9 @@
-{
+{username}: {
   pkgs,
   config,
   ...
 }: {
-  home-manager.users.sebastian = {
+  home-manager.users.${username} = {
     home.packages = with pkgs; [
       spotify-player
     ];
@@ -61,5 +61,5 @@
     '';
   };
 
-  environment.persistence."/persist/user".users.sebastian.directories = [".cache/spotify-player"];
+  environment.persistence."/persist/user".users.${username}.directories = [".cache/spotify-player"];
 }
