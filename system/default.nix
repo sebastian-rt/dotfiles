@@ -6,27 +6,13 @@
 }: {
   system.stateVersion = "25.05";
 
-  # TODO: Move to separate file
-  # GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.excludePackages = [pkgs.xterm]; # Exclude xterm
+  imports = [
+    ./gnome.nix
+    ./packages.nix
+  ];
 
   # Enable Wayland for Chromium/Electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Exclude GNOME packages I don't need
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    yelp
-    gnome-console
-    snapshot
-    gnome-music
-    geary
-    simple-scan
-    totem
-  ];
 
   security.polkit.enable = true;
   services.displayManager.sessionPackages = [pkgs.swayfx];
@@ -100,22 +86,6 @@
     enable = true;
     autosuggestions.enable = true;
   };
-
-  # Some basic packages
-  environment.systemPackages = with pkgs; [
-    (vim.overrideAttrs (oldAttrs: {
-      postInstall =
-        (oldAttrs.postInstall)
-        + ''
-          sed -i '/^MimeType=/d' $out/share/applications/*.desktop
-        '';
-    }))
-    git
-    wlsunset
-    playerctl
-    file
-    ripgrep-all
-  ];
 
   # Allow execution of nixos-rebuild without password prompt
   security.sudo.extraRules = [
