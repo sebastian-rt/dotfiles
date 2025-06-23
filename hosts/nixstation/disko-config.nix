@@ -8,7 +8,10 @@ in {
       "/" = {
         # Ephemeral tmpfs root
         fsType = "tmpfs";
-        mountOptions = ["size=10G"]; # Max size of tmpfs root; adjust as needed
+        mountOptions = [
+          "size=10G" # Max size of tmpfs root; adjust as needed
+          "mode=0755" # tmpfs has 1777 permissions by default
+        ];
       };
     };
     disk.nvme = {
