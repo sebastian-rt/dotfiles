@@ -9,6 +9,7 @@
   imports = [
     ./gnome.nix
     ./packages.nix
+    ./ssh.nix
   ];
 
   # Enable Wayland for Chromium/Electron apps
