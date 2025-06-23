@@ -2,6 +2,6 @@
   home-manager.users.${username}.home.packages = with pkgs; [
     obsidian
   ];
-}
-# TODO: impermanence config
 
+  environment.persistence."/persist/user".users.${username}.directories = [".config/obsidian"];
+}
