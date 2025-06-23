@@ -25,6 +25,7 @@ in {
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
       description = "Sebastian";
       shell = pkgs.zsh; # zsh is installed in /system/default.nix
+      openssh.authorizedKeys.keyFiles = [config.sops.secrets."user_ssh_keys/${username}".path];
     };
   };
 

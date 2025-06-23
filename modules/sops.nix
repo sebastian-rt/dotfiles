@@ -6,6 +6,7 @@
     };
     secrets."user_passwords/sebastian".neededForUsers = true;
     secrets."user_passwords/root".neededForUsers = true;
+    secrets."user_ssh_keys/sebastian".neededForUsers = true;
     secrets."OPENAI_API_KEY_CLI".owner = "sebastian";
   };
 
