@@ -7,14 +7,17 @@
   username = "sebastian";
 in {
   imports =
-    map
-    (module: (import module {inherit username;})) # The username argument is passed on by the intermediate modules to the corresponding "hybrid" modules
-    
-    [
-      ./programs
-      ./packages.nix
-      ./gnome.nix
-      ./docker.nix
+    (map
+      (module: (import module {inherit username;})) # The username argument is passed on by the intermediate modules to the corresponding "hybrid" modules
+      
+      [
+        ./programs
+        ./packages.nix
+        ./gnome.nix
+        ./docker.nix
+      ])
+    ++ [
+      ./fonts.nix
     ];
 
   users.users = {
