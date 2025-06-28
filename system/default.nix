@@ -100,4 +100,42 @@
       ];
     }
   ];
+
+  programs.rust-motd = {
+    enable = true;
+    order = [
+      "global"
+      "banner"
+      "uptime"
+      "filesystems"
+      "memory"
+      "load_avg"
+      "last_login"
+    ];
+    settings = {
+      global = {
+        progress_full_character = "=";
+        progress_empty_character = "=";
+        progress_prefix = "[";
+        progress_suffix = "]";
+        time_format = "%Y-%m-%d %H:%M:%S";
+      };
+      banner = {
+        color = "red";
+        command = "${pkgs.nettools}/bin/hostname | ${pkgs.figlet}/bin/figlet -f slant";
+      };
+      uptime = {
+        prefix = "Uptime:";
+      };
+      filesystems = {
+        root = "/";
+      };
+      memory = {
+        swap_pos = "below";
+      };
+      load_avg = {
+        format = "Load (1, 5, 15 min): {one:.02}, {five:.02}, {fifteen:.02}";
+      };
+    };
+  };
 }

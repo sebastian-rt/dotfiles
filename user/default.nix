@@ -39,6 +39,8 @@ in {
 
   services.udev.extraRules = config.home-manager.users.${username}.programs.easyeffects.newDeviceUdevHook; # TODO: come up with a better solution for this
 
+  programs.rust-motd.settings.last_login.${username} = 3;
+
   home-manager.users.${username} = {
     imports = [
       ../modules/easyeffects
