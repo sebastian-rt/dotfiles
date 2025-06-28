@@ -11,6 +11,11 @@
         "fixpw" = "systemctl --user restart pipewire pipewire-pulse wireplumber";
         "bwpass" = "bw get password";
       };
+      initContent = ''
+        if [ -z "$SSH_CONNECTION" ]; then
+          echo -e "\e[31m$(${pkgs.nettools}/bin/hostname | ${pkgs.figlet}/bin/figlet -f slant)\e[0m";
+        fi
+      '';
       oh-my-zsh = {
         enable = true;
         plugins = [
