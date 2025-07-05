@@ -55,6 +55,9 @@
   # wait-online:
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  # Wake on LAN
+  networking.interfaces.enp4s0.wakeOnLan.enable = true;
+
   # Connection with apple devices
   services.usbmuxd.enable = true;
   environment.systemPackages = [pkgs.libimobiledevice];
