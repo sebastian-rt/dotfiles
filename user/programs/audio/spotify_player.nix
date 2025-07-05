@@ -53,7 +53,7 @@
       [device]
       name = "${config.networking.hostName}"
       device_type = "speaker"
-      volume = 80
+      volume = 100
       bitrate = 320
       audio_cache = true
       normalization = true
