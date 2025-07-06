@@ -55,6 +55,9 @@
   # wait-online:
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # Wake on LAN
   networking.interfaces.enp4s0.wakeOnLan.enable = true;
 
