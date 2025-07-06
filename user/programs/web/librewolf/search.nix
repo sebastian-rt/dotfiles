@@ -30,19 +30,19 @@
     nixpkgs = {
       urls = [{template = "https://search.nixos.org/packages?query={searchTerms}";}];
       definedAliases = ["@nixpkgs"];
-      icon = "https://nixos.org/logo/nixos-logo-only-hires.png";
+      icon = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
     nixos = {
       urls = [{template = "https://search.nixos.org/options?query={searchTerms}";}];
       definedAliases = ["@nixos"];
-      icon = "https://nixos.org/logo/nixos-logo-only-hires.png";
+      icon = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
     homemanager = {
       urls = [{template = "https://home-manager-options.extranix.com/?query={searchTerms}";}];
       definedAliases = ["@homemanager"];
-      icon = "https://nixos.org/logo/nixos-logo-only-hires.png";
+      icon = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
     archwiki = {
