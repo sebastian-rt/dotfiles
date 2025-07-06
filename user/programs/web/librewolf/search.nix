@@ -99,6 +99,12 @@
       icon = "https://developer.mozilla.org/favicon.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
+    noogle = {
+      urls = [{template = "https://noogle.dev/q?term={searchTerms}";}];
+      definedAliases = ["@noogle"];
+      icon = "https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg";
+      updateInterval = 7 * 24 * 60 * 60 * 1000;
+    };
     bing.metaData.hidden = true;
   };
   order = [
@@ -118,5 +124,6 @@
     "reddit"
     "waybackmachine"
     "mdn"
+    "noogle"
   ];
 }
