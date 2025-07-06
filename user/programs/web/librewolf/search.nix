@@ -93,6 +93,12 @@
       icon = "https://upload.wikimedia.org/wikipedia/commons/8/84/Internet_Archive_logo_and_wordmark.svg";
       updateInterval = 7 * 24 * 60 * 60 * 1000;
     };
+    mdn = {
+      urls = [{template = "https://developer.mozilla.org/en-US/search?q={searchTerms}";}];
+      definedAliases = ["@mdn"];
+      icon = "https://developer.mozilla.org/favicon.svg";
+      updateInterval = 7 * 24 * 60 * 60 * 1000;
+    };
     bing.metaData.hidden = true;
   };
   order = [
@@ -111,5 +117,6 @@
     "googlemaps"
     "reddit"
     "waybackmachine"
+    "mdn"
   ];
 }
