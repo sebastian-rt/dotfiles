@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./monitors.nix
     ./disko-config.nix
+    ./sunshine.nix
     ../../modules/nvidia
   ];
 
