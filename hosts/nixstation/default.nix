@@ -20,6 +20,8 @@
 
   nixpkgs.config.allowUnfree = true; # Allow unfree packages on this host
 
+  programs.nh.flake = /home/sebastian/nixos-config;
+
   # CPU
   hardware.cpu.intel.updateMicrocode = true;
 

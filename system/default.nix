@@ -15,6 +15,8 @@
   # Enable Wayland for Chromium/Electron apps
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  programs.nh.enable = true;
+
   security.polkit.enable = true;
   services.displayManager.sessionPackages = [pkgs.swayfx];
   home-manager.users.sebastian.wayland.windowManager.sway = {
