@@ -29,6 +29,7 @@
           untrap-for-youtube
           tridactyl
           dictionary-german
+          languagetool
         ];
       };
     };
