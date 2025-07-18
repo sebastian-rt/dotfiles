@@ -3,6 +3,7 @@
     ./alpaca.nix
     ./blender.nix
     ./chatgpt-cli.nix
+    ./foliate.nix
     ./gimp.nix
     ./libreoffice.nix
     ./obsidian.nix
