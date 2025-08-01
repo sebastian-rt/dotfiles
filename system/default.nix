@@ -17,6 +17,8 @@
 
   programs.nh.enable = true;
 
+  programs.nix-ld.enable = true;
+
   security.polkit.enable = true;
   services.displayManager.sessionPackages = [pkgs.swayfx];
   home-manager.users.sebastian.wayland.windowManager.sway = {
