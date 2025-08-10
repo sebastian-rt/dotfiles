@@ -2,6 +2,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: let
   username = "sebastian";
@@ -44,6 +45,7 @@ in {
 
   programs.rust-motd.settings.last_login.${username} = 3;
 
+  home-manager.extraSpecialArgs = {inherit inputs;};
   home-manager.users.${username} = {
     imports = [
       ../modules/easyeffects
