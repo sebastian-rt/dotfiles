@@ -34,4 +34,8 @@
       };
     };
   };
+
+  environment.persistence."/persist/user".users.${username}.directories = [
+    ".librewolf"
+  ];
 }
